@@ -9,6 +9,8 @@ COPY ./nginx.conf /etc
 COPY ./id_rsa /root/.ssh
 COPY ./id_rsa.pub /root/.ssh
 COPY ./authorized_keys /root/.ssh
+RUN ["chmod", "600", "/root/.ssh/id_rsa"]
+RUN ["chmod", "600", "/root/.ssh/authorized_keys"]
 EXPOSE 22
 EXPOSE 80
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf", "-n"]
