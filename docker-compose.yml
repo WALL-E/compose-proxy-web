@@ -1,0 +1,32 @@
+weba:
+    build: ./web
+    expose:
+        - 80
+
+webb:
+    build: ./web
+    expose:
+        - 80
+
+webc:
+    build: ./web
+    expose:
+        - 80
+webd:
+    build: ./web
+    expose:
+        - 80
+
+
+
+proxy:
+    build: ./proxy
+    links:
+        - weba
+        - webb
+        - webc
+        - webd
+    ports:
+        - "80:80"
+    expose:
+        - "80"
