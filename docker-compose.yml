@@ -35,7 +35,9 @@ proxy:
         - web-d
     ports:
         - "80:80"
+        - "22"
     expose:
         - "80"
+        - "22"
     tty: true
     stdin_open: true
