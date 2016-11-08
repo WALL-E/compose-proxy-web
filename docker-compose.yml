@@ -1,32 +1,41 @@
-weba:
+web-a:
     build: ./web
     expose:
         - 80
+    tty: true
+    stdin_open: true
 
-webb:
+web-b:
     build: ./web
     expose:
         - 80
+    tty: true
+    stdin_open: true
 
-webc:
+web-c:
     build: ./web
     expose:
         - 80
-webd:
+    tty: true
+    stdin_open: true
+
+web-d:
     build: ./web
     expose:
         - 80
-
-
+    tty: true
+    stdin_open: true
 
 proxy:
     build: ./proxy
     links:
-        - weba
-        - webb
-        - webc
-        - webd
+        - web-a
+        - web-b
+        - web-c
+        - web-d
     ports:
         - "80:80"
     expose:
         - "80"
+    tty: true
+    stdin_open: true

@@ -1,6 +1,6 @@
 
-FROM openresty:latest-centos
-WORKDIR /apps/openresty
-ADD . /apps/openresty
+FROM 172.28.32.23:8808/public/openresty_lab
+WORKDIR /opt/openresty
+ADD . /opt/openresty/nginx/conf
 EXPOSE 80
-CMD ["-c", "/apps/openresty/nginx.conf"]
+CMD ["/opt/openresty/nginx/sbin/nginx", "-g", "daemon off;"]
