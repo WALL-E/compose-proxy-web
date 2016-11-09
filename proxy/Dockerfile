@@ -4,6 +4,7 @@ WORKDIR /root
 RUN ["/usr/bin/ssh-keygen", "-A"]
 RUN ["mkdir", "/var/log/supervisor"]
 RUN ["mkdir", "-p", "/root/.ssh"]
+RUN ["yum", "install", "-y", "iproute", "net-tools", "lsof"]
 COPY ./supervisord.conf /etc
 COPY ./nginx.conf /etc
 COPY ./id_rsa /root/.ssh
